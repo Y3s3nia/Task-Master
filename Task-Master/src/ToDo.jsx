@@ -1,26 +1,38 @@
 import {useState} from 'react'
 
 function ToDo () {
-    const [tasks, setTasks] = useState(["Eat breakfast", "Go to gym", "Take a shower"]);
+    const [tasks, setTasks] = useState(["Go to gym", "Take a shower", "Go to work"]);
     const [newTask, setNewTask] = useState("");
-    const [completedTasks, setCompletedTasks] = useState([]);
+    let [completedTasks, setCompletedTasks] = useState(["Eat breakfast", "Walk the dog"]);
 
     function handleInoutChage (event) {
         setNewTask(event.target.value);
     }
 
     function addTask () {
-        setTasks (t => [...t, newTask]);
-        setNewTask("");
+        if (newTask.trim() !== "") {
+            setTasks (t => [...t, newTask]);
+            setNewTask("");
+        }
     }
 
     function deleteTask (index) {
-    
+        const updatedTasks = [...tasks.slice(0, index), ...tasks.slice(index + 1)];
+        setTasks(updatedTasks);
     }
 
-    function markComplete () {
-
+    function deleteTask2 (index) {
+        const updatedTasks2 = [...completedTasks.slice(0, index), ...completedTasks.slice(index + 1)];
+        setCompletedTasks(updatedTasks2);
     }
+
+    function markComplete (index) {
+        setCompletedTasks(c => [...c, completedTasks]);
+        console.log(completedTasks);
+        const updatedTasks3 = [...tasks.slice(0, index), ...tasks.slice(index + 1)];
+        setTasks(updatedTasks3);
+    }
+
     return (
         <div> 
             <h1>Task Master</h1>
@@ -30,14 +42,18 @@ function ToDo () {
                 <button className = "add-button" onClick={addTask}>Add Task</button>
             </div>
             <ol>
-                {tasks.map((task, index) =>
+                {tasks.map((tasks, index) =>
                     <li key = {index}>
-                        <span className = "text">{task}</span>
-                        <button className = "delete-button"
-                        onClick = {deleteTask(index)}>🗑️</button>
-                        <button className = "complete-button"
-                        onClick={() => markComplete(index)}>Done</button>
+                        <span className = "text">{tasks}</span>
+                        <button onClick={() => deleteTask(index)}>🗑️</button>
+                        <button onClick={() => markComplete(index)}>✔️</button>
                     </li>
+                )}
+                {completedTasks.map((completedTasks, index2) =>
+                        <li key = {index2}>
+                            <span className = "text">{completedTasks}</span>
+                            <button onClick={() => deleteTask2(index2)}>🗑️</button>
+                        </li>
                 )}
             </ol>
         </div>
