@@ -27,8 +27,7 @@ function ToDo () {
     }
 
     function markComplete (index) {
-        setCompletedTasks(c => [...c, completedTasks]);
-        console.log(completedTasks);
+        setCompletedTasks(c => [...c, tasks[index]]);
         const updatedTasks3 = [...tasks.slice(0, index), ...tasks.slice(index + 1)];
         setTasks(updatedTasks3);
     }
