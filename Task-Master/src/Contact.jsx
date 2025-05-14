@@ -1,5 +1,33 @@
 import {useState} from 'react'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
 function Contact () {
-    return;
+    function BasicExample() {
+        return (
+            <Navbar expand="lg" className="bg-body-tertiary" fixed-top = "true">
+                <Container>
+                    <Navbar.Brand href="./ToDo.jsx">Task Master</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                        <Nav.Link href="./ToDo.jsx">To Do List</Nav.Link>
+                        <Nav.Link href="./Contact.jsx">Contact</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        );
+      }
+    return (
+        <div>
+            <BasicExample/>
+            <h1>Contact</h1>
+            <p>For any inquiries, please reach out to us at:</p>
+            <p>Email:</p>
+            </div>
+    );
 }
+
+export default Contact;

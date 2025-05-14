@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import ToDo from './ToDo.jsx'
+import Contact from './Contact.jsx'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-      <ToDo/>
+      <ToDo/>//,
+      //<Contact/>
   )
 }
 
