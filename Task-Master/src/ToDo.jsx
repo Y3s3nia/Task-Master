@@ -7,7 +7,7 @@ function ToDo () {
     const [newTask, setNewTask] = useState("");
     let [completedTasks, setCompletedTasks] = useState(["Eat breakfast", "Walk the dog"]);
 
-    function handleInoutChage (event) {
+    function handleInputChage (event) {
         setNewTask(event.target.value);
     }
 
@@ -34,55 +34,91 @@ function ToDo () {
         setTasks(updatedTasks3);
     }
 
+    function TabsForList() {
+        return (
+            <Tabs
+                defaultActiveKey="all"
+                id="justify-tab-example"
+                className="mb-3"
+                justify
+            >
+                <Tab 
+                    eventKey = "all" 
+                    title = "All" 
+                    mountOnEnter 
+                    unmountOnExit
+                >
+                    <ul>
+                        {tasks.map((tasks, index) =>
+                            <li key = {index}>
+                                <span className = "text">{tasks}</span>
+                                <button className = "delete-button" onClick={() => deleteTask(index)}>🗑️</button>
+                                <button className = "done-button" onClick={() => markComplete(index)}>✔️</button>
+                            </li>
+                        )}
+                        {completedTasks.map((completedTasks, index2) =>
+                            <li key = {index2}>
+                                <span className = "text">{completedTasks}</span>
+                                <button className = "delete-button" onClick={() => deleteTask2(index2)}>🗑️</button>
+                            </li>
+                        )}
+                    </ul>
+                </Tab>
+                <Tab 
+                    eventKey = "completed" 
+                    title = "Completed" 
+                    mountOnEnter 
+                    unmountOnExit
+                >
+                    <ul>
+                        {completedTasks.map((completedTasks, index2) =>
+                            <li key = {index2}>
+                                <span className = "text">{completedTasks}</span>
+                                <button className = "delete-button" onClick={() => deleteTask2(index2)}>🗑️</button>
+                            </li>
+                        )}
+                    </ul>
+                </Tab>
+                <Tab 
+                    eventKey = "to do" 
+                    title = "To Do" 
+                    mountOnEnter 
+                    unmountOnExit
+                >
+                    <ul>
+                        {tasks.map((tasks, index) =>
+                            <li key = {index}>                       
+                                <span className = "text">{tasks}</span>                            
+                                <button className = "delete-button" onClick={() => deleteTask(index)}>🗑️</button>
+                                <button className = "done-button" onClick={() => markComplete(index)}>✔️</button>
+                            </li>
+                        )}
+                    </ul>
+                </Tab>
+            </Tabs>
+        );
+    }
+      
     return (
         <div> 
             <h1>Task Master</h1>
             <h2>To-Do List</h2>
             <div> 
-                <input type="text" value={newTask} onChange={handleInoutChage} placeholder="Add a new task" />
-                <button className = "add-button" onClick={addTask}>Add Task</button>
+                <input 
+                    type="text" 
+                    value={newTask} 
+                    onChange={handleInputChage} 
+                    placeholder="Add a new task" 
+                />
+                <button 
+                    className = "add-button" 
+                    onClick={addTask}
+                >   
+                    Add Task
+                </button>
             </div>
             <div className = "tabs">
-                <Tabs className="nav nav-tabs" defaultActiveKey="All" transition={false} justify>
-                    <Tab className="nav-item" eventKey="All" title="All">
-                        <ul>
-                            {tasks.map((tasks, index) =>
-                                <li key = {index}>
-                                    <span className = "text">{tasks}</span>
-                                    <button className = "delete-button" onClick={() => deleteTask(index)}>🗑️</button>
-                                    <button className = "done-button" onClick={() => markComplete(index)}>✔️</button>
-                                </li>
-                            )}
-                            {completedTasks.map((completedTasks, index2) =>
-                                <li key = {index2}>
-                                    <span className = "text">{completedTasks}</span>
-                                    <button className = "delete-button" onClick={() => deleteTask2(index2)}>🗑️</button>
-                                </li>
-                            )}
-                        </ul>
-                    </Tab>
-                    <Tab className="nav-item" eventKey="Complete" title="Complete">
-                        <ul>
-                            {completedTasks.map((completedTasks, index2) =>
-                                <li key = {index2}>
-                                    <span className = "text">{completedTasks}</span>
-                                    <button className = "delete-button" onClick={() => deleteTask2(index2)}>🗑️</button>
-                                </li>
-                            )}
-                        </ul>
-                    </Tab>
-                    <Tab className="nav-item" eventKey="home" title="Home">
-                        <ul>
-                            {tasks.map((tasks, index) =>
-                                <li key = {index}>                       
-                                    <span className = "text">{tasks}</span>                            
-                                    <button className = "delete-button" onClick={() => deleteTask(index)}>🗑️</button>
-                                    <button className = "done-button" onClick={() => markComplete(index)}>✔️</button>
-                                </li>
-                            )}
-                        </ul>
-                    </Tab>
-                </Tabs>
+                <TabsForList />
             </div>
         </div>
     );
