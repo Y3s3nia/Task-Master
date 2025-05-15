@@ -49,24 +49,23 @@ function Contact () {
     }
 
     function addContact () {
-        if (newFirstName.trim() !== "" || newLastName.trim() !== "" || newEmail.trim() !== "" || newComment.trim() !== "") {
+        if (newFirstName.trim() !== "" && newLastName.trim() !== "" && newEmail.trim() !== "" && newComment.trim() !== "") {
             setContact (c => [...c, newContact]);
             setNewContact({firstName: newFirstName, lastName: newLastName, email: newEmail, comment: newComment});
         }
-        return console.log(newContact, contact);
     }
 
     function ContactList() {
         return (
-                <ul>
-                    {contact.map((c, index) => (
-                        <li key={index}>
-                            <h3>{c.firstName} {c.lastName}</h3>
-                            <p>{c.email}</p>
-                            <p>{c.comment}</p>
-                        </li>
-                    ))}
-                </ul>
+            <ul>
+                {contact.map((c, index) => (
+                    <li key={index}>
+                        <h3>{c.firstName} {c.lastName}</h3>
+                        <p>{c.email}</p>
+                        <p>{c.comment}</p>
+                    </li>
+                ))}
+            </ul>
         );
     }
 
@@ -77,39 +76,36 @@ function Contact () {
             <div className = "Form-Container">
                 <input 
                     className = "input"
-                    type = "text" 
+                    type = "text"
                     value = {newFirstName} 
-                    onChange = {handleInput} 
+                    onInput = {handleInput} 
                     placeholder = "First Name" 
-                    required
                 />
                 <input 
                     className = "input"
-                    type = "text" 
+                    type = "text"
                     value = {newLastName} 
-                    onChange = {handleInput2} 
+                    onInput = {handleInput2} 
                     placeholder = "Last Name"
-                    required 
                 />
                 <input 
                     className = "input"
-                    type = "email" 
+                    type = "email"
                     value = {newEmail} 
-                    onChange = {handleInput3} 
+                    onInput = {handleInput3} 
                     placeholder = "E-mail" 
-                    required
                 />
                 <input 
                     className = "input"
-                    type = "text" 
+                    type = "text"
                     value = {newComment} 
-                    onChange = {handleInput4} 
+                    onInput = {handleInput4} 
                     placeholder = "Comment" 
-                    required
                 />
                 <button 
                     className = "add-button" 
-                    onClick = {addContact}
+                    type = "submit"
+                    onClick = {() => addContact()}
                 >   
                     Add Contact
                 </button>
