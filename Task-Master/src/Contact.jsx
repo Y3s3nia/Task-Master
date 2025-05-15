@@ -59,10 +59,10 @@ function Contact () {
         return (
             <ul>
                 {contact.map((c, index) => (
-                    <li key={index}>
-                        <h3>{c.firstName} {c.lastName}</h3>
-                        <p>{c.email}</p>
-                        <p>{c.comment}</p>
+                    <li className = "contact-list" key={index}>
+                        <h3 className = "contact-item">{c.firstName} {c.lastName}</h3>
+                        <p className = "contact-item">{c.email}</p>
+                        <p className = "contact-item">{c.comment}</p>
                     </li>
                 ))}
             </ul>
@@ -110,7 +110,7 @@ function Contact () {
                     Add Contact
                 </button>
             </div>
-            <div className = "contact-list">
+            <div>
                 <ContactList />
             </div>
         </div>
