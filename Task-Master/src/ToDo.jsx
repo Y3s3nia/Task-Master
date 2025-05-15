@@ -11,7 +11,7 @@ function ToDo () {
     const [newTask, setNewTask] = useState("");
     let [completedTasks, setCompletedTasks] = useState(["Eat breakfast", "Walk the dog"]);
 
-    function handleInputChage (event) {
+    function handleInput (event) {
         setNewTask(event.target.value);
     }
 
@@ -130,7 +130,7 @@ function ToDo () {
                     className = "input"
                     type="text" 
                     value={newTask} 
-                    onChange={handleInputChage} 
+                    onChange={handleInput} 
                     placeholder="Add a new task" 
                 />
                 <button 
