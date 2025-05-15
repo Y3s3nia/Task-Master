@@ -124,9 +124,10 @@ function ToDo () {
         <div> 
             <BasicExample />
             <h1>Task Master</h1>
-            <h2>To-Do List</h2>
-            <div> 
+            <h3>To-Do List</h3>
+            <div className = "input-container"> 
                 <input 
+                    className = "input"
                     type="text" 
                     value={newTask} 
                     onChange={handleInputChage} 
