@@ -4,3 +4,25 @@
   padding: 2rem;
   text-align: center;
 }
+.todoListItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  background-color: #090e3d;
+  margin: 1rem;
+}
+
+.completeListItem {
+  font-family: "Codystar", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  background-color: #090e3d75;
+  margin: 1rem;
+}

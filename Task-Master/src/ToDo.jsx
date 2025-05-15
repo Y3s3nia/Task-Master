@@ -40,7 +40,7 @@ function ToDo () {
 
     function BasicExample() {
         return (
-            <Navbar expand="lg" className="bg-body-tertiary fixed-top">
+            <Navbar expand="lg" className="bg-body-tertiary fixed-top" bg="dark" data-bs-theme="dark">
                 <Container>
                     <Navbar.Brand href="./ToDo.jsx">Task Master</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -71,14 +71,14 @@ function ToDo () {
                 >
                     <ul>
                         {tasks.map((tasks, index) =>
-                            <li key = {index}>
+                            <li className = "todoListItem" key = {index}>
                                 <span className = "text">{tasks}</span>
-                                <button className = "delete-button" onClick={() => deleteTask(index)}>🗑️</button>
                                 <button className = "done-button" onClick={() => markComplete(index)}>✔️</button>
+                                <button className = "delete-button" onClick={() => deleteTask(index)}>🗑️</button>
                             </li>
                         )}
                         {completedTasks.map((completedTasks, index2) =>
-                            <li key = {index2}>
+                            <li className = "completeListItem" key = {index2}>
                                 <span className = "text">{completedTasks}</span>
                                 <button className = "delete-button" onClick={() => deleteTask2(index2)}>🗑️</button>
                             </li>
@@ -93,7 +93,7 @@ function ToDo () {
                 >
                     <ul>
                         {completedTasks.map((completedTasks, index2) =>
-                            <li key = {index2}>
+                            <li className = "completeListItem" key = {index2}>
                                 <span className = "text">{completedTasks}</span>
                                 <button className = "delete-button" onClick={() => deleteTask2(index2)}>🗑️</button>
                             </li>
@@ -108,10 +108,10 @@ function ToDo () {
                 >
                     <ul>
                         {tasks.map((tasks, index) =>
-                            <li key = {index}>                       
+                            <li className = "todoListItem" key = {index}>                       
                                 <span className = "text">{tasks}</span>                            
-                                <button className = "delete-button" onClick={() => deleteTask(index)}>🗑️</button>
                                 <button className = "done-button" onClick={() => markComplete(index)}>✔️</button>
+                                <button className = "delete-button" onClick={() => deleteTask(index)}>🗑️</button>
                             </li>
                         )}
                     </ul>
