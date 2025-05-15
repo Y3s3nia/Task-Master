@@ -50,8 +50,9 @@ function Contact () {
 
     function addContact () {
         if (newFirstName.trim() !== "" && newLastName.trim() !== "" && newEmail.trim() !== "" && newComment.trim() !== "") {
+            const newContact = {firstName: newFirstName, lastName: newLastName, email: newEmail, comment: newComment};
             setContact (c => [...c, newContact]);
-            setNewContact({firstName: newFirstName, lastName: newLastName, email: newEmail, comment: newComment});
+            
         }
     }
 
