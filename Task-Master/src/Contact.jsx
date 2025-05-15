@@ -4,9 +4,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 function Contact () {
-    function BasicExample() {
+    function NavbarTask() {
         return (
-            <Navbar expand="lg" className="bg-body-tertiary" fixed-top = "true">
+            <Navbar expand="lg" className="bg-body-tertiary fixed-top" bg="dark" data-bs-theme="dark">
                 <Container>
                     <Navbar.Brand href="./ToDo.jsx">Task Master</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -22,10 +22,9 @@ function Contact () {
       }
     return (
         <div>
-            <BasicExample/>
+            <NavbarTask />
             <h1>Contact</h1>
-            <p>For any inquiries, please reach out to us at:</p>
-            <p>Email:</p>
+            <div className = "Form-Container"></div>
             </div>
     );
 }

@@ -38,7 +38,7 @@ function ToDo () {
         setTasks(updatedTasks3);
     }
 
-    function BasicExample() {
+    function NavbarTask() {
         return (
             <Navbar expand="lg" className="bg-body-tertiary fixed-top" bg="dark" data-bs-theme="dark">
                 <Container>
@@ -122,7 +122,7 @@ function ToDo () {
       
     return (
         <div> 
-            <BasicExample />
+            <NavbarTask />
             <h1>Task Master</h1>
             <h3>To-Do List</h3>
             <div className = "input-container"> 
