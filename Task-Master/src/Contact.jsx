@@ -11,8 +11,6 @@ function Contact () {
     const [comment, setComment] = useState("Co-worker");
     const [newComment, setNewComment] = useState("");
     const [contact, setContact] = useState([{firstName, lastName, email, comment}]);
-    const [newContact, setNewContact] = useState([{firstName, lastName, email, comment}]);
-
 
 
     function handleInput (event) {
