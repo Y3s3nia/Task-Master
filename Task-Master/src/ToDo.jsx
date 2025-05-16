@@ -1,10 +1,7 @@
-import {useState} from 'react'
+import {useState} from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Contact from './Contact';
+import Navbars from './Navbars.jsx';
 
 function ToDo () {
     const [tasks, setTasks] = useState(["Go to gym", "Take a shower", "Go to work"]);
@@ -37,23 +34,6 @@ function ToDo () {
         const updatedTasks3 = [...tasks.slice(0, index), ...tasks.slice(index + 1)];
         setTasks(updatedTasks3);
     }
-
-    function NavbarTask() {
-        return (
-            <Navbar expand="lg" className="bg-body-tertiary fixed-top" bg="dark" data-bs-theme="dark">
-                <Container>
-                    <Navbar.Brand href="./ToDo.jsx">Task Master</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                        <Nav.Link href="./ToDo.jsx">To Do List</Nav.Link>
-                        <Nav.Link href= "./Contact.jsx">Contact</Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        );
-      }
 
     function TabsForList() {
         return (
@@ -122,9 +102,8 @@ function ToDo () {
       
     return (
         <div> 
-            <NavbarTask />
-            <h1>Task Master</h1>
-            <h3>To-Do List</h3>
+            <Navbars />
+            <h1>To-Do List</h1>
             <div className = "input-container"> 
                 <input 
                     className = "input"

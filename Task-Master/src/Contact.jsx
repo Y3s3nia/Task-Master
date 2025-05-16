@@ -1,7 +1,5 @@
-import {useState} from 'react'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import {useState} from 'react';
+import Navbars from './Navbars.jsx';
 
 function Contact () {
     const [firstName, setFirstName] = useState("John");
@@ -15,22 +13,7 @@ function Contact () {
     const [contact, setContact] = useState([{firstName, lastName, email, comment}]);
     const [newContact, setNewContact] = useState([{firstName, lastName, email, comment}]);
 
-    function NavbarTask() {
-        return (
-            <Navbar expand="lg" className="bg-body-tertiary fixed-top" bg="dark" data-bs-theme="dark">
-                <Container>
-                    <Navbar.Brand href="./ToDo.jsx">Task Master</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                        <Nav.Link href="./ToDo.jsx">To Do List</Nav.Link>
-                        <Nav.Link href="./Contact.jsx">Contact</Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        );
-    }
+
 
     function handleInput (event) {
         setNewFirstName(event.target.value);
@@ -52,7 +35,6 @@ function Contact () {
         if (newFirstName.trim() !== "" && newLastName.trim() !== "" && newEmail.trim() !== "" && newComment.trim() !== "") {
             const newContact = {firstName: newFirstName, lastName: newLastName, email: newEmail, comment: newComment};
             setContact (c => [...c, newContact]);
-            
         }
     }
 
@@ -72,7 +54,7 @@ function Contact () {
 
     return (
         <div>
-            <NavbarTask />
+            <Navbars />
             <h1>Contact</h1>
             <div className = "Form-Container">
                 <input 
@@ -118,4 +100,4 @@ function Contact () {
     );
 }
 
-export default Contact;
+export default Contact

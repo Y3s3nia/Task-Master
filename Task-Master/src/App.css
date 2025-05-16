@@ -12,6 +12,7 @@
   border: 1px solid #ccc;
   background-color: #090e3d;
   margin: 1rem;
+  border-radius: 8px;
 }
 
 .completeListItem {
@@ -25,6 +26,7 @@
   border: 1px solid #ccc;
   background-color: #090e3d75;
   margin: 1rem;
+  border-radius: 8px;
 }
 
 .mb-3 {
